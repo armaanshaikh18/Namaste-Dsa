@@ -16,3 +16,30 @@ function sum(n) {
 }
 
 console.log(sum(5));
+
+let arr = [5, 2, 3, 0, 4];
+
+function recursionsum(n) {
+  if (n == 0) return arr[n];
+
+  return arr[n] + recursionsum(n - 1);
+}
+
+console.log(recursionsum(arr.length - 1));
+
+function oddSum(n) {
+  let isOdd = arr[n] % 2 != 0;
+
+  if (n == 0) return isOdd ? arr[n] : 0;
+
+  return (isOdd ? arr[n] : 0) + oddSum(n - 1);
+}
+
+console.log(oddSum(arr.length - 1));
+
+function fibo(n) {
+  if (n <= 1) return n;
+  return fibo(n - 1) + fibo(n - 2);
+}
+
+console.log(fibo(5));
