@@ -1,14 +1,14 @@
 // write an program for recursion
 
-function recursion(nums) {
-  if (nums === 0) return;
-  console.log(nums);
-  nums = nums - 1;
-  recursion(nums);
+function recursion(num) {
+  if (num === 0) return;
+  console.log(num);
+  num = num - 1;
+  recursion(num);
 }
 
-let nums = 8;
-recursion(nums);
+let num = 8;
+recursion(num);
 
 function sum(n) {
   if (n === 0) return 0;
@@ -43,3 +43,36 @@ function fibo(n) {
 }
 
 console.log(fibo(5));
+
+// Merge Sort Algorithm
+
+function mergeSort(left, right) {
+  let res = [];
+  let i = 0;
+  let j = 0;
+
+  while (i < left.length && j < right.length) {
+    if (left[i] < right[j]) {
+      res.push(left[i]);
+      i++;
+    } else {
+      res.push(right[j]);
+      j++;
+    }
+  }
+  return [...res, ...left.slice(i), ...right.slice(j)];
+}
+
+function sortArray(nums) {
+  if (nums.length <= 1) return nums;
+
+  let mid = Math.floor(nums.length / 2);
+  let left = sortArray(nums.slice(0, mid));
+  let right = sortArray(nums.slice(mid));
+
+  return mergeSort(left, right);
+}
+
+let nums = [5, 3, 8, 2, 1];
+
+console.log(sortArray(nums), "nums");
